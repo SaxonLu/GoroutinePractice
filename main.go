@@ -18,17 +18,18 @@ func main() {
 }
 
 func InsertA(wg *sync.WaitGroup) {
+	defer wg.Done()
 	time.Sleep(time.Second)
 	for i := 0; i < 100; i++ {
 		fmt.Println("AAA")
 	}
-	wg.Done()
+
 }
 
 func InsertB(wg *sync.WaitGroup) {
+	defer wg.Done()
 	time.Sleep(time.Second)
 	for i := 0; i < 100; i++ {
 		fmt.Println("BBB")
 	}
-	wg.Done()
 }
